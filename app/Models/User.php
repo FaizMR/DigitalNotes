@@ -47,4 +47,10 @@ class User extends Authenticatable implements PasskeyUser
             'two_factor_confirmed_at' => 'datetime',
         ];
     }
+
+    public function notes()
+    {
+        // Relations Many To One / Banyak Ke Satu model user
+        return $this->belongsTo(Note::class);
+    }
 }

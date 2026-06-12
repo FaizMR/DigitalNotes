@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Table;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 // The table associated with the model.
 #[Table('tags')]
@@ -16,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    public function notes()
+    public function notes(): BelongsToMany
     {
         // Relations Many To Many / Banyak Ke Banyak model note
         return $this->belongsToMany(Note::class, 'note_id');

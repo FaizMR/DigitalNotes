@@ -22,12 +22,12 @@ class Note extends Model
     public function user()
     {
         // Relations One To Many / Satu Ke Banyak model user
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function tags()
     {
         // Relations Many To Many / Banyak Ke Banyak model tag
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class, 'note_id');
     }
 }

@@ -51,6 +51,6 @@ class User extends Authenticatable implements PasskeyUser
     public function notes()
     {
         // Relations Many To One / Banyak Ke Satu model user
-        return $this->belongsTo(Note::class);
+        return $this->belongsTo(Note::class, 'note_id');
     }
 }

@@ -19,6 +19,6 @@ class Tag extends Model
     public function notes()
     {
         // Relations Many To Many / Banyak Ke Banyak model note
-        return $this->belongsToMany(Note::class);
+        return $this->belongsToMany(Note::class, 'note_id');
     }
 }

@@ -17,9 +17,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Tag extends Model
 {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Note, $this>
+     */
     public function notes(): BelongsToMany
     {
         // Relations Many To Many / Banyak Ke Banyak model note
-        return $this->belongsToMany(Note::class, 'note_id');
+        return $this->belongsToMany(Note::class);
     }
 }

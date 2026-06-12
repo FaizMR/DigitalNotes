@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
@@ -49,9 +50,12 @@ class User extends Authenticatable implements PasskeyUser
         ];
     }
 
-    public function notes(): BelongsTo
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Note, $this>
+     */
+    public function notes(): HasMany
     {
         // Relations Many To One / Banyak Ke Satu model user
-        return $this->belongsTo(Note::class, 'note_id');
+        return $this->hasMany(Note::class, 'note_id');
     }
 }

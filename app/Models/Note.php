@@ -21,15 +21,21 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Note extends Model
 {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     */
     public function user(): BelongsTo
     {
         // Relations One To Many / Satu Ke Banyak model user
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Tag, $this>
+     */
     public function tags(): BelongsToMany
     {
         // Relations Many To Many / Banyak Ke Banyak model tag
-        return $this->belongsToMany(Tag::class, 'note_id');
+        return $this->belongsToMany(Tag::class);
     }
 }

@@ -12,13 +12,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 // The attributes that are mass assignable.
 #[Fillable([
-    'name'
+    'name',
 ])]
 
 class Tag extends Model
 {
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Note, $this>
+     * @return BelongsToMany<Note, $this>
      */
     public function notes(): BelongsToMany
     {

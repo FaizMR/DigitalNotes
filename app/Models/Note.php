@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Note extends Model
 {
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, $this>
+     * @return BelongsTo<User, $this>
      */
     public function user(): BelongsTo
     {
@@ -31,7 +31,7 @@ class Note extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Tag, $this>
+     * @return BelongsToMany<Tag, $this>
      */
     public function tags(): BelongsToMany
     {

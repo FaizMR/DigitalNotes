@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class NotesController extends Controller
 {
@@ -12,7 +13,11 @@ class NotesController extends Controller
         try {
             // Mengambil semua data catatan (notes) milik pengguna yang sedang masuk (login) saja dari dalam database
             $note = Note::where('user_id', auth()->id())->get();
-            return response()->json(['notes' => $note], 200);
+            // dd($note);
+            // return response()->json(['notes' => $note], 200);
+            return Inertia::render('AllNotes/Index', [
+                'notes' => $note
+            ]);
         } catch (\Throwable $th) {
             // Menampilkan message 'Failed to retrieve notes'
             return response()->json(['message' => 'Failed to retrieve notes'], 500);
